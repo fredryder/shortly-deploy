@@ -5,10 +5,14 @@ module.exports = function(grunt) {
     concat: {
 
       options: {
+        // adds a semicolon at the concat point
         separator: ';'
       },
+      // distribution?
       dist: {
+        // source files
         src: ['public/client/**/*.js'],
+        // desination and file name as template - comes from json file - .name property
         dest: 'public/dist/<%= pkg.name %>.js'
       }
           },
@@ -35,6 +39,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          // the new name. The source is the name of the file the concat process produces
           'public/dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
